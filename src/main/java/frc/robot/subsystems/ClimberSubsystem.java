@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ClimberSubsystem extends SubsystemBase {
+
   private SparkMax sparkMax;
   //private SparkMax sparkMax2;
 
@@ -20,11 +21,14 @@ public class ClimberSubsystem extends SubsystemBase {
     //SparkMax sparkMax2 = new SparkMax(Constants.MotorConstants.sparkID2,MotorType.kBrushless);
   }
 
+  //Methods
+  //Velocity ranging from 1 (100%) to -1 (-100%)
    public void setVelocity(double velocity){
     sparkMax.set(velocity);
     //sparkMax2.set(velocity);
   }
 
+  //Commands
   public Command climbUp() {
     return run(() -> this.setVelocity(0.05));
   }

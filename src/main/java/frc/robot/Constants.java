@@ -14,6 +14,7 @@ package frc.robot;
  */
 public final class Constants {
 
+  //Full list of motor IDs
   public static class MotorConstants{
     public static int falconID1 = 10;
     public static int falconID2 = 46;

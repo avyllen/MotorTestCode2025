@@ -19,24 +19,28 @@ import frc.robot.Constants;
 public class CoralIntakeSubsystem extends SubsystemBase {
   private TalonFX falcon1;
   private TalonFX falcon2;
-  
 
 private final NeutralOut m_brake = new NeutralOut();
 
+  //To change IDs, go to the Constants folder
   public CoralIntakeSubsystem() {
      falcon1 = new TalonFX(Constants.MotorConstants.falconID1); 
      falcon2 = new TalonFX(Constants.MotorConstants.falconID2);
      }
 
+  //Methods
   private void disable() {
     falcon1.setControl(m_brake);
     falcon2.setControl(m_brake);
   }
+
+  //Velocity ranging from 1 (100%) to -1 (-100%)
   public void setVelocity(double velocity){
     falcon1.set(velocity);
     falcon2.set(-velocity);
   }
 
+  //Commands
   public Command slowOuttake() {
     return run(() -> this.setVelocity(0.1));
   }

@@ -32,6 +32,7 @@ public class RobotContainer {
 
     configureBindings();
 
+    //Set default commands to stop the mechanisms when not in use
     intake.setDefaultCommand(intake.withDisable());
     climber.setDefaultCommand(climber.stop());
   }
@@ -39,6 +40,7 @@ public class RobotContainer {
 
   private void configureBindings() {
 
+    //Put controls here
     xbox.rightTrigger().whileTrue(intake.midIntake());
     xbox.a().whileTrue(intake.slowIntake());
     xbox.b().whileTrue(intake.slowOuttake());
